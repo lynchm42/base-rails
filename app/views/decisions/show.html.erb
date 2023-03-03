@@ -1,6 +1,60 @@
 <div>
   <div>
     <h1>
+      Ask Ben - Step 2
+    </h1>
+    <h3>
+      My Question: <%= @the_decision.name %>
+    </h3>
+    <h3>
+      What criteria are important to you?
+    </h3>
+    <p> For example, if you're deciding where to eat dinner, some criteria that may be important is: price, quality, and ambiance. </p>
+
+    <p> Also, weigh the criteria on how important it is to you (from 1 to 5) </p>
+    <p> 1 means not important. 5 means extremely important </p>
+    
+
+    <form action="/insert_criterium" method="post">
+      <div>
+        <label for="name_box">
+          Criteria
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight">
+      </div>
+
+      <div>
+        <label for="decision_id_box">
+        </label>
+
+        <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
+      </div>
+
+      <button>
+        Create criteria
+      </button>
+    </form>
+
+    <form action="/">
+
+      <button>
+        Done creating criteria
+      </button>
+    </form>
+
+
+
+<!--
+    <h1>
       Decision #<%= @the_decision.id %> details
     </h1>
 
@@ -68,4 +122,4 @@
   </div>
 </div>
 
-<hr>
+<hr> -->

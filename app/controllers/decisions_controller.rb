@@ -23,7 +23,7 @@ class DecisionsController < ApplicationController
 
     if the_decision.valid?
       the_decision.save
-      redirect_to("/decisions", { :notice => "Decision created successfully." })
+      redirect_to("/decisions/" + the_decision.id.to_s, { :notice => "Decision created successfully." })
     else
       redirect_to("/decisions", { :alert => the_decision.errors.full_messages.to_sentence })
     end

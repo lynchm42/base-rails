@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Criterium #<%= @the_criterium.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/criteria">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_criterium/<%= @the_criterium.id %>">
+          Delete criterium
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Weight
+      </dt>
+      <dd>
+        <%= @the_criterium.weight %>
+      </dd>
+
+      <dt>
+        Decision
+      </dt>
+      <dd>
+        <%= @the_criterium.decision_id %>
+      </dd>
+
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_criterium.name %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_criterium.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_criterium.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit criterium
+    </h2>
+
+    <form action="/modify_criterium/<%= @the_criterium.id %>"  method="post" >
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight" value="<%= @the_criterium.weight %>">
+      </div>
+
+      <div>
+        <label for="decision_id_box">
+          Decision
+        </label>
+
+        <input type="text" id="decision_id_box" name="query_decision_id" value="<%= @the_criterium.decision_id %>">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_criterium.name %>">
+      </div>
+
+      <button>
+        Update criterium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

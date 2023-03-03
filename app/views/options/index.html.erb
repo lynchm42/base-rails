@@ -1,0 +1,102 @@
+<div>
+  <div>
+    <h1>
+      List of all options
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new option
+    </h2>
+
+    <form action="/insert_option" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <div>
+        <label for="decision_id_box">
+          Decision
+        </label>
+
+        <input type="text" id="decision_id_box" name="query_decision_id">
+      </div>
+
+      <button>
+        Create option
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Decision
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_options.each do |an_option| %>
+      <tr>
+        <td>
+          <%= an_option.id %>
+        </td>
+
+        <td>
+          <%= an_option.name %>
+        </td>
+
+        <td>
+          <%= an_option.decision_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(an_option.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(an_option.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/options/<%= an_option.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

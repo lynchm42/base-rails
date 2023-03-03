@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all criteria
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new criterium
+    </h2>
+
+    <form action="/insert_criterium" method="post">
+      <div>
+        <label for="weight_box">
+          Weight
+        </label>
+
+        <input type="text" id="weight_box" name="query_weight">
+      </div>
+
+      <div>
+        <label for="decision_id_box">
+          Decision
+        </label>
+
+        <input type="text" id="decision_id_box" name="query_decision_id">
+      </div>
+
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create criterium
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Weight
+        </th>
+
+        <th>
+          Decision
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_criteria.each do |a_criterium| %>
+      <tr>
+        <td>
+          <%= a_criterium.id %>
+        </td>
+
+        <td>
+          <%= a_criterium.weight %>
+        </td>
+
+        <td>
+          <%= a_criterium.decision_id %>
+        </td>
+
+        <td>
+          <%= a_criterium.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_criterium.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_criterium.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/criteria/<%= a_criterium.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Score #<%= @the_score.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/scores">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_score/<%= @the_score.id %>">
+          Delete score
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Score
+      </dt>
+      <dd>
+        <%= @the_score.score %>
+      </dd>
+
+      <dt>
+        Option
+      </dt>
+      <dd>
+        <%= @the_score.option_id %>
+      </dd>
+
+      <dt>
+        Criteria
+      </dt>
+      <dd>
+        <%= @the_score.criteria_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_score.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_score.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit score
+    </h2>
+
+    <form action="/modify_score/<%= @the_score.id %>"  method="post" >
+      <div>
+        <label for="score_box">
+          Score
+        </label>
+
+        <input type="text" id="score_box" name="query_score" value="<%= @the_score.score %>">
+      </div>
+
+      <div>
+        <label for="option_id_box">
+          Option
+        </label>
+
+        <input type="text" id="option_id_box" name="query_option_id" value="<%= @the_score.option_id %>">
+      </div>
+
+      <div>
+        <label for="criteria_id_box">
+          Criteria
+        </label>
+
+        <input type="text" id="criteria_id_box" name="query_criteria_id" value="<%= @the_score.criteria_id %>">
+      </div>
+
+      <button>
+        Update score
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

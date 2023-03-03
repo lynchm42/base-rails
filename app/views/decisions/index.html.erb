@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all decisions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new decision
+    </h2>
+
+    <form action="/insert_decision" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create decision
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_decisions.each do |a_decision| %>
+      <tr>
+        <td>
+          <%= a_decision.id %>
+        </td>
+
+        <td>
+          <%= a_decision.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_decision.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_decision.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/decisions/<%= a_decision.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

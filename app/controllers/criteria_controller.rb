@@ -25,7 +25,7 @@ class CriteriaController < ApplicationController
 
     if the_criterium.valid?
       the_criterium.save
-      redirect_to("/criteria", { :notice => "Criterium created successfully." })
+      redirect_to("/decisions/"+ the_criterium.decision.id.to_s , { :notice => "Criterium created successfully." })
     else
       redirect_to("/criteria", { :alert => the_criterium.errors.full_messages.to_sentence })
     end

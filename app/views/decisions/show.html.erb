@@ -13,33 +13,61 @@
 
     <p> Also, weigh the criteria on how important it is to you (from 1 to 5) </p>
     <p> 1 means not important. 5 means extremely important </p>
+
+    <div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          Criteria
+        </th>
+
+        <th>
+          Weight
+        </th>
+
+      </tr>
+
+      <% @the_decision.criteria.each do |a_criterium| %>
+      <tr>
+        <td>
+          <%= a_criterium.name %>
+        </td>
+
+        <td>
+          <%= a_criterium.weight %>
+        </td>
+
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
     
 
     <form action="/insert_criterium" method="post">
       <div>
         <label for="name_box">
-          Criteria
+          Criteria:
         </label>
 
         <input type="text" id="name_box" name="query_name">
       </div>
 
       <div>
-        <label for="rating">Choose a rating from 1 to 5:</label>
-          <select name="rating" id="rating">
+        <label for="weight_box">Weight:</label>
+          <select name="query_weight" id="weight_box">
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
             <option value="4">4</option>
             <option value="5">5</option>
           </select>
+      </div>
 
-        <!--<label for="weight_box">
-          Weight
-        </label>
-
-        <input type="text" id="weight_box" name="query_weight">
-      </div>-->
+  <hr>
 
       <div>
         <label for="decision_id_box">

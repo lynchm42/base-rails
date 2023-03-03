@@ -29,6 +29,16 @@ class DecisionsController < ApplicationController
     end
   end
 
+  def weights
+    the_id = params.fetch("path_id")
+
+    matching_decisions = Decision.where({ :id => the_id })
+
+    @the_decision = matching_decisions.at(0)
+
+    render({ :template => "decisions/show.html.erb" })
+  end
+
   def update
     the_id = params.fetch("path_id")
     the_decision = Decision.where({ :id => the_id }).at(0)

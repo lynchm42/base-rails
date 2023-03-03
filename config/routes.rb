@@ -50,7 +50,7 @@ Rails.application.routes.draw do
   
   get("/decisions/:path_id", { :controller => "decisions", :action => "show" })
 
-  get("/decisions_options/:path_id", { :controller => "decisions", :action => "show" })
+  get("/decisions_weights/:path_id", { :controller => "decisions", :action => "weights" })
   
   # UPDATE
   

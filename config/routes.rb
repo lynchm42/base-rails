@@ -49,6 +49,8 @@ Rails.application.routes.draw do
   get("/decisions", { :controller => "decisions", :action => "index" })
   
   get("/decisions/:path_id", { :controller => "decisions", :action => "show" })
+
+  get("/decisions_options/:path_id", { :controller => "decisions", :action => "show" })
   
   # UPDATE
   

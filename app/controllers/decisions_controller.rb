@@ -56,7 +56,20 @@ class DecisionsController < ApplicationController
 
     @the_decision = matching_decisions.at(0)
 
+    @criteria = @the_decision.criteria
+    @options = @the_decision.options
+
     render({ :template => "decisions/scores.html.erb" })
+  end
+
+  def decided
+      decision_score = 0
+    criteria_weights = Decision.criteria.weight
+    criteria_weights.each do |cw|
+      score = Rating.where(option_id: option.id, criteria_id: cw.criteria_id).pluck(:score).first
+      decision_score += cw.weight * score
+    end
+    return decision_score
   end
 
   def update

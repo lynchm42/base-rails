@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
 
-
-
   # Routes for the Score resource:
 
   # CREATE
@@ -55,6 +53,8 @@ Rails.application.routes.draw do
   get("/decisions_weights/:path_id", { :controller => "decisions", :action => "weights" })
 
   get("/decisions_scores/:path_id", { :controller => "decisions", :action => "scores" })
+
+  get("/decisions_decided/:path_id", { :controller => "decisions", :action => "decided" })
   
   # UPDATE
   

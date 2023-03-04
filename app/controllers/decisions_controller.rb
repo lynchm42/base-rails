@@ -7,6 +7,16 @@ class DecisionsController < ApplicationController
     render({ :template => "decisions/index.html.erb" })
   end
 
+  def options
+    the_id = params.fetch("path_id")
+
+    matching_decisions = Decision.where({ :id => the_id })
+
+    @the_decision = matching_decisions.at(0)
+
+    render({ :template => "decisions/options.html.erb" })
+  end
+
   def show
     the_id = params.fetch("path_id")
 

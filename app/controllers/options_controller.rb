@@ -24,7 +24,8 @@ class OptionsController < ApplicationController
 
     if the_option.valid?
       the_option.save
-      redirect_to("/options", { :notice => "Option created successfully." })
+      redirect_to("/decisions/" + the_option.decision_id.to_s, { :notice => "Option created successfully."})
+      # redirect_to("/options", { :notice => "Option created successfully." })
     else
       redirect_to("/options", { :alert => the_option.errors.full_messages.to_sentence })
     end

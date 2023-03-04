@@ -48,7 +48,9 @@ Rails.application.routes.draw do
   # READ
   get("/decisions", { :controller => "decisions", :action => "index" })
   
-  get("/decisions/:path_id", { :controller => "decisions", :action => "show" })
+  get("/decisions/:path_id", { :controller => "decisions", :action => "options" })
+
+  get("/decisions_criteria/:path_id", { :controller => "decisions", :action => "show" })
 
   get("/decisions_weights/:path_id", { :controller => "decisions", :action => "weights" })
   

@@ -53,6 +53,8 @@ Rails.application.routes.draw do
   get("/decisions_criteria/:path_id", { :controller => "decisions", :action => "show" })
 
   get("/decisions_weights/:path_id", { :controller => "decisions", :action => "weights" })
+
+  get("/decisions_scores/:path_id", { :controller => "decisions", :action => "scores" })
   
   # UPDATE
   
@@ -76,6 +78,8 @@ Rails.application.routes.draw do
   # UPDATE
   
   post("/modify_criterium/:path_id", { :controller => "criteria", :action => "update" })
+
+  post("/update_weight/:path_id", { :controller => "criteria", :action => "update"})
   
   # DELETE
   get("/delete_criterium/:path_id", { :controller => "criteria", :action => "destroy" })

@@ -10,10 +10,6 @@
       What criteria are important to you?
     </h3>
     <p> For example, if you're deciding where to eat dinner, some criteria that may be important are: price, quality, and ambiance. </p>
-
-    <p> Also, weigh the criteria on how important it is to you (from 1 to 5) </p>
-    <p> 1 means not important. 5 means extremely important </p>
-
     <div>
   <div>
     <table border="1">
@@ -22,9 +18,9 @@
           Criteria
         </th>
 
-        <th>
+        <!--<th>
           Weight
-        </th>
+        </th>-->
 
       </tr>
 
@@ -34,9 +30,9 @@
           <%= a_criterium.name %>
         </td>
 
-        <td>
+        <!--<td>
           <%= a_criterium.weight %>
-        </td>
+        </td>-->
 
       </tr>
       <% end %>
@@ -57,17 +53,11 @@
       </div>
 
       <div>
-        <label for="weight_box">Weight:</label>
-          <select name="query_weight" id="weight_box">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </div>
+        <label for="weight_box">
+        </label>
 
-  <hr>
+        <input type="hidden" id="weight_box" name="query_weight" value="0">
+      </div>
 
       <div>
         <label for="decision_id_box">
@@ -81,7 +71,7 @@
       </button>
     </form>
 
-    <form action="/decisions_weights/ <%= @the_decision.id  %> "> 
+    <form action="/decisions_weights/<%= @the_decision.id.to_s.strip %>"> 
 
       <button>
         Done creating criteria

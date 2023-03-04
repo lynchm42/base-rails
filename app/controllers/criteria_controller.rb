@@ -41,10 +41,20 @@ class CriteriaController < ApplicationController
 
     if the_criterium.valid?
       the_criterium.save
-      redirect_to("/criteria/#{the_criterium.id}", { :notice => "Criterium updated successfully."} )
+      redirect_to("/decisions_weights/#{the_criterium.decision_id}", { :notice => "Criterium updated successfully."} )
     else
       redirect_to("/criteria/#{the_criterium.id}", { :alert => the_criterium.errors.full_messages.to_sentence })
     end
+  end
+
+  def weight_update
+    params[:weight].each do |criterium_id, weight|
+      criterium = Criterium.find(criterium_id)
+      criterium.update(weight: weight.to_i)
+    end
+    redirect_back(fallback_location: root_path)
+    # decision_id = Criterium.first.decision_id
+    # redirect_to("/decisions_weights/#{decision_id}", { :notice => "Weight updated successfully."})
   end
 
   def destroy

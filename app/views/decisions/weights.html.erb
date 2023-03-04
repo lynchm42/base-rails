@@ -7,7 +7,7 @@
     <h3>
       My Question: <%= @the_decision.name %>
     </h3>
-    
+
     <h3>
       Weigh the importance of each Criteria (1 = not important. 5 = extremely important)
     </h3>
@@ -16,74 +16,30 @@
   <div>
     <table border="1">
       <tr>
-        <th>
-          Criteria
-        </th>
-
-        <th>
-          Weight
-        </th>
-
+        <th>Criteria</th>
+        <th>Weight</th>
       </tr>
-
       <% @the_decision.criteria.each do |a_criterium| %>
-      <tr>
-        <td>
-          <%= a_criterium.name %>
-        </td>
+        <tr>
+          <td>
+            <%= a_criterium.name %>
+          </td>
 
-        <td>
-          <%= a_criterium.weight %>
-        </td>
-
-      </tr>
+          <td>
+              <%= form_tag("/modify_criterium/#{a_criterium.id}", method: :post) do %>
+              <%= hidden_field_tag :path_id, a_criterium.id %>
+              <%= number_field_tag :query_weight, a_criterium.weight, in: 1..5 %>
+              <%= hidden_field_tag :query_decision_id, a_criterium.decision_id %>
+              <%= hidden_field_tag :query_name, a_criterium.name %>
+              <%= submit_tag "Weigh" %>
+            <% end %>
+          </td>
+        </tr>
       <% end %>
     </table>
-  </div>
-</div>
 
-<hr>
-    
-
-    <form action="/insert_criterium" method="post">
-      <div>
-        <label for="name_box">
-          Criteria:
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
-        <label for="weight_box">Weight:</label>
-          <select name="query_weight" id="weight_box">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-          </select>
-      </div>
-
-  <hr>
-
-      <div>
-        <label for="decision_id_box">
-        </label>
-
-        <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
-      </div>
-
+  <form action="/decisions_scores/<%= @the_decision.id.to_s.strip %>"> 
       <button>
-        Create criteria
+        One more step
       </button>
-    </form>
-
-      <!--this part is where it is going to send them to the scoring part-->
-    <form action="/">
-      
-
-      <button>
-        Done creating criteria
-      </button>
-    </form>
+  </form>

@@ -24,7 +24,7 @@ class DecisionsController < ApplicationController
 
     @the_decision = matching_decisions.at(0)
 
-    render({ :template => "decisions/show.html.erb" })
+    render({ :template => "decisions/step3.html.erb" })
   end
 
   def create
@@ -47,6 +47,16 @@ class DecisionsController < ApplicationController
     @the_decision = matching_decisions.at(0)
 
     render({ :template => "decisions/weights.html.erb" })
+  end
+
+  def scores
+    the_id = params.fetch("path_id")
+
+    matching_decisions = Decision.where({ :id => the_id })
+
+    @the_decision = matching_decisions.at(0)
+
+    render({ :template => "decisions/scores.html.erb" })
   end
 
   def update

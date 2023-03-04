@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      Ask Ben - Step 2
+      Ask Ben - Step 3
     </h1>
     <h3>
       My Question: <%= @the_decision.name %>
@@ -9,7 +9,7 @@
     <h3>
       What criteria are important to you?
     </h3>
-    <p> For example, if you're deciding where to eat dinner, some criteria that may be important is: price, quality, and ambiance. </p>
+    <p> For example, if you're deciding where to eat dinner, some criteria that may be important are: price, quality, and ambiance. </p>
 
     <p> Also, weigh the criteria on how important it is to you (from 1 to 5) </p>
     <p> 1 means not important. 5 means extremely important </p>
@@ -81,9 +81,7 @@
       </button>
     </form>
 
-      <!--this part is where it is going to send them to the scoring part-->
-    <form action="/">
-      
+    <form action="/decisions_weights/ <%= @the_decision.id  %> "> 
 
       <button>
         Done creating criteria

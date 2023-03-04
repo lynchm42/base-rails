@@ -46,7 +46,7 @@ class DecisionsController < ApplicationController
 
     @the_decision = matching_decisions.at(0)
 
-    render({ :template => "decisions/show.html.erb" })
+    render({ :template => "decisions/weights.html.erb" })
   end
 
   def update

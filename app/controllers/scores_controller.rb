@@ -23,9 +23,11 @@ class ScoresController < ApplicationController
     the_score.option_id = params.fetch("query_option_id")
     the_score.criteria_id = params.fetch("query_criteria_id")
 
+    the_decision = params.fetch("query_decision_id")
+
     if the_score.valid?
       the_score.save
-      redirect_to("/scores", { :notice => "Score created successfully." })
+      redirect_to("/decisions_scores/" + the_decision.to_s, { :notice => "Score created successfully." })
     else
       redirect_to("/scores", { :alert => the_score.errors.full_messages.to_sentence })
     end

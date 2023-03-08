@@ -28,8 +28,8 @@
           <% @criteria.each do |a_criteria| %>
           
             <td>
-              <form>
-                <input type="hidden" name="path_id" value="<%= a_criteria.id %>">
+              <form action="/insert_score" method="post">
+                <input type="hidden" name="query_criteria_id" value="<%= a_criteria.id %>">
                 <input type="number" name="query_score" value="0" min="1" max="5">
                 <input type="hidden" name="query_decision_id" value="<%= a_criteria.decision_id %>">
                 <input type="hidden" name="query_option_id" value="<%= a_option.id %>">

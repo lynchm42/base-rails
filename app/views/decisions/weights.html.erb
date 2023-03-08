@@ -26,13 +26,13 @@
           </td>
 
           <td>
-              <%= form_tag("/modify_criterium/#{a_criterium.id}", method: :post) do %>
-              <%= hidden_field_tag :path_id, a_criterium.id %>
-              <%= number_field_tag :query_weight, a_criterium.weight, in: 1..5 %>
-              <%= hidden_field_tag :query_decision_id, a_criterium.decision_id %>
-              <%= hidden_field_tag :query_name, a_criterium.name %>
-              <%= submit_tag "Weigh" %>
-            <% end %>
+            <form action="/modify_criterium/<%= a_criterium.id %>" method="post">
+              <input type="hidden" name="path_id" value="<%= a_criterium.id %>">
+              <input type="number" name="query_weight" value="<%= a_criterium.weight %>" min="1" max="5">
+              <input type="hidden" name="query_decision_id" value="<%= a_criterium.decision_id %>">
+              <input type="hidden" name="query_name" value="<%= a_criterium.name %>">
+              <input type="submit" value="Weigh">
+            </form>
           </td>
         </tr>
       <% end %>

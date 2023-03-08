@@ -12,7 +12,6 @@
     <p> Quick hint: if price is your criteria, for a high price you would give it a lower score </p>
   <div>
 
-<form>
   <table border="1">
     <thead>
       <tr>
@@ -27,25 +26,21 @@
         <tr>
           <td><%= a_option.name %></td>
           <% @criteria.each do |a_criteria| %>
+          
             <td>
-              <select name="<%= a_criteria.name %>" id="scores">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
+              <form>
+                <input type="hidden" name="path_id" value="<%= a_criteria.id %>">
+                <input type="number" name="query_score" value="0" min="1" max="5">
+                <input type="hidden" name="query_decision_id" value="<%= a_criteria.decision_id %>">
+                <input type="hidden" name="query_option_id" value="<%= a_option.id %>">
+                <button>
+                  Create Score
+                </button>
+              </form>
             </td>
-            <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
-            <input type="hidden" id="criteria_id_box" name="query_criteria_id" value="<%= @criteria.ids %>">
-            <input type="hidden" id="option_id_box" name="query_option_id" value="<%= @option.id %>">
           <% end %>
         </tr>
       <% end %>
       
     </tbody>
   </table>
-  <button>
-    Find my answer!
-  </button>
-</form>

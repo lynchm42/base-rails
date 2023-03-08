@@ -59,7 +59,7 @@ class DecisionsController < ApplicationController
     @criteria = @the_decision.criteria
     @options = @the_decision.options
 
-    @scores = Score.where(option: @options, criteria: @criteria).group_by { |s| [s.option, s.criteria] }
+    # @scores = Score.where({ :criteria_id => @criteria.id, :option_id => @option.id}).at(0)
 
     render({ :template => "decisions/scores.html.erb" })
   end

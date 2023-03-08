@@ -12,25 +12,40 @@
     <p> Quick hint: if price is your criteria, for a high price you would give it a lower score </p>
   <div>
 
-<table border="1">
-  <thead>
-    <tr>
-      <th>Options</th>
-      <% @criteria.each do |c| %>
-        <th><%= c.name %></th>
-      <% end %>
-    </tr>
-  </thead>
-  <tbody>
-    <% @options.each do |o| %>
+<form>
+  <table border="1">
+    <thead>
       <tr>
-        <td><%= o.name %></td>
+        <th>Options</th>
         <% @criteria.each do |c| %>
-          <td>
-              <%= select_tag "rating[#{o.id}][#{c.id}]", options_for_select([['1',1],['2',2],['3',3],['4',4],['5',5]]) %>
-          </td>
+          <th><%= c.name %></th>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+          <% @options.each do |a_option| %>
+        <tr>
+          <td><%= a_option.name %></td>
+          <% @criteria.each do |a_criteria| %>
+            <td>
+              <select name="<%= a_criteria.name %>" id="scores">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+            <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
+            <input type="hidden" id="criteria_id_box" name="query_criteria_id" value="<%= @criteria.ids %>">
+            <input type="hidden" id="option_id_box" name="query_option_id" value="<%= @option.id %>">
+          <% end %>
+        </tr>
+      <% end %>
+      
+    </tbody>
+  </table>
+  <button>
+    Find my answer!
+  </button>
+</form>

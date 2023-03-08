@@ -59,6 +59,8 @@ class DecisionsController < ApplicationController
     @criteria = @the_decision.criteria
     @options = @the_decision.options
 
+    @scores = Score.where(option: @options, criteria: @criteria).group_by { |s| [s.option, s.criteria] }
+
     render({ :template => "decisions/scores.html.erb" })
   end
 

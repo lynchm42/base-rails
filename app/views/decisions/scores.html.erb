@@ -26,20 +26,34 @@
         <tr>
           <td><%= a_option.name %></td>
           <% @criteria.each do |a_criteria| %>
-          
-            <td>
-              <form action="/insert_score" method="post">
-                <input type="hidden" name="query_criteria_id" value="<%= a_criteria.id %>">
-                <input type="number" name="query_score" value="0" min="1" max="5">
-                <input type="hidden" name="query_decision_id" value="<%= a_criteria.decision_id %>">
-                <input type="hidden" name="query_option_id" value="<%= a_option.id %>">
-                <button>
-                  Create Score
-                </button>
-              </form>
-            </td>
-          <% end %>
-        </tr>
+            <% the_score = Score.where({ :criteria_id => a_criteria, :option_id => a_option }).at(0) %>
+              <% if the_score %>
+                <td>
+                  <form action="/modify_score/<%= the_score.id %>" method="post">
+                    <input type="hidden" name="query_criteria_id" value="<%= a_criteria.id %>">
+                    <input type="number" name="query_score" value="<%= the_score.score %>" min="1" max="5">
+                    <input type="hidden" name="query_decision_id" value="<%= a_criteria.decision_id %>">
+                    <input type="hidden" name="query_option_id" value="<%= a_option.id %>">
+                    <button>
+                      Edit Score
+                    </button>
+                  </form>
+                </td>
+              <% else %>
+                <td>
+                  <form action="/insert_score" method="post">
+                    <input type="hidden" name="query_criteria_id" value="<%= a_criteria.id %>">
+                    <input type="number" name="query_score" value="0" min="1" max="5">
+                    <input type="hidden" name="query_decision_id" value="<%= a_criteria.decision_id %>">
+                    <input type="hidden" name="query_option_id" value="<%= a_option.id %>">
+                    <button>
+                      Create Score
+                    </button>
+                  </form>
+                </td>
+              <% end %>
+            <% end %>
+      </tr>
       <% end %>
       
     </tbody>

@@ -22,8 +22,12 @@ class ScoresController < ApplicationController
     the_score.score = params.fetch("query_score")
     the_score.option_id = params.fetch("query_option_id")
     the_score.criteria_id = params.fetch("query_criteria_id")
-
     the_decision = params.fetch("query_decision_id")
+
+    score_criteria = the_score.criteria_id
+    score_option = the_score.option_id
+
+    # @the_score = Score.where({ :criteria_id => score_criteria, :option_id => score_option })
 
     if the_score.valid?
       the_score.save
@@ -40,10 +44,11 @@ class ScoresController < ApplicationController
     the_score.score = params.fetch("query_score")
     the_score.option_id = params.fetch("query_option_id")
     the_score.criteria_id = params.fetch("query_criteria_id")
+    the_decision = params.fetch("query_decision_id")
 
     if the_score.valid?
       the_score.save
-      redirect_to("/scores/#{the_score.id}", { :notice => "Score updated successfully."} )
+      redirect_to("/decisions_scores/" + the_decision.to_s, { :notice => "Score updated successfully." })
     else
       redirect_to("/scores/#{the_score.id}", { :alert => the_score.errors.full_messages.to_sentence })
     end

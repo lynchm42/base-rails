@@ -6,7 +6,33 @@
     <h3>
       My Question: <%= @the_decision.name %>
     </h3>
+
     <h3>
       Your Answer is:
-    </h3>
   <div>
+
+  <div class="option">
+  <h1><%= @option_scores.first[0].name %></h1>
+  </div>
+
+    <!--<ol>
+      <% @option_scores.each do |option, score| %>
+        <li><%= option.name %></li>
+      <% end %>
+    </ol>-->
+
+<div>
+</div>
+<div class="smaller-font">
+  <% @option_scores[1..2].each do |option_score| %>
+    <%= option_score[0].name %>
+  <% end %>
+</div>
+<%= link_to "See Top 3 Options", "#top-3-options" %>
+
+<h2 id="top-3-options">Top 3 Options</h2>
+<% @option_scores.each do |option_score| %>
+  <div>
+    <%= option_score[0].name %>: <%= option_score[1] %>
+  </div>
+<% end %>

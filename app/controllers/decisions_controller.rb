@@ -71,31 +71,28 @@ class DecisionsController < ApplicationController
 
     @the_decision = matching_decisions.at(0)
 
-    # active record has some built in calculation methods
+    @criteria = @the_decision.criteria
+    @options = @the_decision.options
+    
+    @option_scores = []
 
-    # Define hash to store total score for each option
-
-    option_scores = {}
-
-    # Loop through all options
     @options.each do |option|
-      total_score = 0
-
-      # Loop through all criteria for this option
-      option.criteria.each do |criteria|
-        # Multiply score by weight and add to running total for this option
-        total_score += option.scores.find_by(criteria_id: criteria.id).score * criteria.weight
+      total_weighted_score = 0
+  
+      @criteria.each do |criteria|
+        scores = Score.where({ :option_id => option.id, :criteria_id => criteria.id })
+        
+        if scores.present?
+          score = scores.first.score
+          weighted_score = score * criteria.weight
+          total_weighted_score += weighted_score
+        end
       end
-
-      # Store total score for this option in the hash
-      option_scores[option] = total_score
+  
+      @option_scores << [option, total_weighted_score]
     end
-
-    # Sort the hash by total score in descending order
-    sorted_option_scores = option_scores.sort_by { |option, score| -score }
-
-    # Output the top 3 options
-    top_3_options = sorted_option_scores.take(3).map { |option, score| option }
+  
+    @option_scores = @option_scores.sort_by { |option, score| -score }.first(3)
    
     render({ :template => "decisions/answer.html.erb" })
   end

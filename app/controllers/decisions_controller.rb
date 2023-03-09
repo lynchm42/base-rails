@@ -64,6 +64,18 @@ class DecisionsController < ApplicationController
     render({ :template => "decisions/scores.html.erb" })
   end
 
+  def answer
+    the_id = params.fetch("path_id")
+
+    matching_decisions = Decision.where({ :id => the_id })
+
+    @the_decision = matching_decisions.at(0)
+
+    # active record has some built in calculation methods
+   
+    render({ :template => "decisions/answer.html.erb" })
+  end
+
   def decided
       decision_score = 0
     criteria_weights = Decision.criteria.weight

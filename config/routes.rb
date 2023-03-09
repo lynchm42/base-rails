@@ -55,6 +55,8 @@ Rails.application.routes.draw do
   get("/decisions_scores/:path_id", { :controller => "decisions", :action => "scores" })
 
   get("/decisions_decided/:path_id", { :controller => "decisions", :action => "decided" })
+
+  get("/decisions_answer/:path_id", { :controller => "decisions", :action => "answer" })
   
   # UPDATE
   

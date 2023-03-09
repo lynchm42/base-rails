@@ -1,5 +1,19 @@
 Rails.application.routes.draw do
 
+  # Homepages
+
+  get("/", { :controller => "application", :action => "home" })
+
+  get("/1", { :controller => "application", :action => "home_1" })
+
+  get("/2", { :controller => "application", :action => "home_2" })
+
+  get("/3", { :controller => "application", :action => "home_3" })
+
+  get("/4", { :controller => "application", :action => "home_4" })
+
+
+
   # Routes for the Score resource:
 
   # CREATE
@@ -44,8 +58,6 @@ Rails.application.routes.draw do
   post("/insert_decision", { :controller => "decisions", :action => "create" })
           
   # READ
-
-  get("/", { :controller => "decisions", :action => "index" })
 
   get("/decisions", { :controller => "decisions", :action => "index" })
   

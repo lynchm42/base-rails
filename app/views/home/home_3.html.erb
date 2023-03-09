@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Decision Matrix Home Page</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			color: #333;
+			margin: 0;
+			padding: 0;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			overflow: hidden;
+			position: relative;
+		}
+
+		.background {
+			position: absolute;
+			top: 0;
+			left: 0;
+			height: 100%;
+			width: 100%;
+			background-image: url('fork-in-the-road.jpg');
+			background-size: cover;
+			background-position: center;
+			animation: slide 60s linear infinite;
+		}
+
+		@keyframes slide {
+			from { transform: translateX(0); }
+			to { transform: translateX(-100%); }
+		}
+
+		.header {
+			background-color: rgba(255, 255, 255, 0.8);
+			color: #333;
+			padding: 20px;
+			text-align: center;
+			font-size: 2em;
+			margin: 0;
+			width: 100%;
+			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		h1 {
+			margin: 0;
+		}
+
+		.intro {
+			margin: 20px auto;
+			max-width: 800px;
+			text-align: center;
+			font-size: 1.2em;
+			line-height: 1.5;
+			padding: 20px;
+			background-color: rgba(255, 255, 255, 0.8);
+			border-radius: 10px;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+			animation: pop 0.3s ease;
+		}
+
+		.intro img {
+			max-width: 100%;
+			margin-bottom: 20px;
+			border-radius: 5px;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.btn {
+			display: inline-block;
+			background-color: #333;
+			color: #fff;
+			padding: 10px 20px;
+			border-radius: 5px;
+			text-decoration: none;
+			margin-top: 20px;
+			font-size: 1.2em;
+			transition: background-color 0.3s ease;
+			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		.btn:hover {
+			background-color: #555;
+		}
+
+		.quote {
+			font-style: italic;
+			font-size: 1.5em;
+			margin-top: 50px;
+			margin-bottom: 0;
+			text-align: center;
+		}
+
+		@media (max-width: 768px) {
+
+			.intro {
+				margin: 20px;
+				font-size: 1em;
+				padding: 10px;
+			}
+
+			h1 {
+				font-size: 1.5em;
+			}
+
+			.btn {
+        font-size: 1em;
+			  padding: 10px 15px;
+			  margin-top: 10px;
+		  }
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="background"></div>
+		<div class="header">
+			<h1>Stuck at a fork in the road?</h1>
+			<p>Let our Decision Matrix guide you to the right path.</p>
+		</div>
+		<div class="intro">
+			<img src="fork-in-the-road.jpg" alt="Fork in the road" />
+			<p>Do you find yourself struggling to make a decision? Perhaps you're not sure which path to take or which factors to consider?</p>
+			<p>Our Decision Matrix is here to help. By breaking down your options into a simple, easy-to-understand format, we'll help you navigate even the toughest decisions.</p>
+			<a href="decision-matrix.html" class="btn">Go to Decision Matrix</a>
+		</div>
+		<p class="quote">"The hardest thing in life is to know which bridge to cross and which to burn."</p>
+	</div>
+</body>
+</html>

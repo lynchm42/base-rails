@@ -94,6 +94,15 @@ class DecisionsController < ApplicationController
   
     @option_scores = @option_scores.sort_by { |option, score| -score }.first(3)
    
+    if params[:show_top_3] == "true"
+      @show_top_3 = true
+      @option_scores = @option_scores.first(3)
+    else
+      @show_top_3 = false
+      # Show only the option with the highest score
+      @option_scores = [@option_scores.first]
+    end
+    
     render({ :template => "decisions/answer.html.erb" })
   end
 

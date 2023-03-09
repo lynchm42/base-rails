@@ -12,27 +12,22 @@
   <div>
 
   <div class="option">
-  <h1><%= @option_scores.first[0].name %></h1>
+  <h1><%= @option_scores.first[0].name.strip().capitalize %></h1>
   </div>
 
-    <!--<ol>
-      <% @option_scores.each do |option, score| %>
-        <li><%= option.name %></li>
-      <% end %>
-    </ol>-->
-
-<div>
-</div>
-<div class="smaller-font">
-  <% @option_scores[1..2].each do |option_score| %>
-    <%= option_score[0].name %>
+  <!-- Show the link to view top 3 options -->
+  <% if @show_top_3 %>
+    <!-- Show the top 3 options -->
+    <% @option_scores.each_with_index do |option_score, index| %>
+      <div class="option <%= index == 0 %>">
+        <p><%= index + 1 %>. <%= option_score[0].name.strip().capitalize %> | Score = <%= option_score[1] %> </p>
+      </div>
+    <% end %>
+  <% else %>
+    <!-- Show the link to view top 3 options -->
+    <div class="view-top-3">
+      <%= link_to "View Top 3 Options", { :controller => "decisions", :action => "answer", :path_id => @the_decision.id, :show_top_3 => true } %>
+    </div>
   <% end %>
-</div>
-<%= link_to "See Top 3 Options", "#top-3-options" %>
 
-<h2 id="top-3-options">Top 3 Options</h2>
-<% @option_scores.each do |option_score| %>
-  <div>
-    <%= option_score[0].name %>: <%= option_score[1] %>
-  </div>
-<% end %>
+<a href="/"> Ask Ben something else. </a>

@@ -44,6 +44,9 @@ Rails.application.routes.draw do
   post("/insert_decision", { :controller => "decisions", :action => "create" })
           
   # READ
+
+  get("/", { :controller => "decisions", :action => "index" })
+
   get("/decisions", { :controller => "decisions", :action => "index" })
   
   get("/decisions/:path_id", { :controller => "decisions", :action => "options" })

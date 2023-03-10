@@ -14,74 +14,25 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
 
     <style>
-		body {
-			background-color: #F8F8F8;
-			font-family: 'Roboto', sans-serif;
-			color: #222;
-			margin: 0;
-			padding: 0;
-		}
-		header {
-			background-color: #3A3A3A;
-			padding: 20px;
-			color: #FFF;
-		}
-		h1 {
-			margin: 0;
-			font-weight: normal;
-			font-size: 32px;
-			text-transform: uppercase;
-			letter-spacing: 2px;
-		}
-		form {
-			max-width: 800px;
-			margin: 50px auto;
-			background-color: #FFF;
-			padding: 40px;
-			box-shadow: 0px 0px 20px rgba(0,0,0,0.1);
-			border-radius: 10px;
-		}
-		label {
-			display: block;
-			margin-bottom: 10px;
-			font-size: 18px;
-			font-weight: bold;
-		}
-		input[type="text"], input[type="email"], textarea {
-			width: 100%;
-			padding: 10px;
-			font-size: 16px;
-			border: none;
-			border-radius: 5px;
-			margin-bottom: 20px;
-			box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
-			background-color: #F5F5F5;
-			color: #333;
-			resize: none;
-		}
-		textarea {
-			height: 150px;
-		}
-		input[type="submit"] {
-			background-color: #3A3A3A;
-			color: #FFF;
-			border: none;
-			padding: 10px 20px;
-			font-size: 18px;
-			font-weight: bold;
-			text-transform: uppercase;
-			border-radius: 5px;
-			cursor: pointer;
-			transition: background-color 0.2s ease;
-		}
-		input[type="submit"]:hover {
-			background-color: #222;
-		}
-	</style>
 
-   </head>
+    .footer {
+			padding: 20px;
+			text-align: center;
+		}
+		.footer p {
+			margin: 0;
+			font-size: 1.0rem;
+		}
+
+	  </style>
+
+  </head>
 
   <body>
     <%= yield %>
   </body>
+
+  <footer class="footer">
+		  <p>&copy; 2023 The Decision-Maker. All rights reserved.</p>
+	</footer>
 </html>

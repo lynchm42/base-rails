@@ -10,8 +10,8 @@
 		}
 
 		.header {
-			background-color: #ffc107;
-			color: #333;
+			background-color: #3399ff;
+			color: #fff;
 			padding: 20px;
 			text-align: center;
 			font-size: 2em;
@@ -30,16 +30,29 @@
 			text-align: center;
 			font-size: 1.5em;
 			line-height: 1.5;
-			border: 5px dashed #ffc107;
+			border: 5px solid #3399ff;
 			padding: 20px;
 			border-radius: 20px;
 			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
 		}
 
 		.intro img {
 			max-width: 100%;
 			margin-bottom: 20px;
 		}
+
+    .card {
+      max-width: 100%;
+			margin-bottom: 20px;
+      background-color: #fff;
+      padding: 1em;
+      margin: 1em;
+      flex: 1 0 300px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
 
 		.resources {
 			margin: 50px auto;
@@ -54,21 +67,52 @@
 			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
 		}
 
-		.btn {
+    .section {
+      padding: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: stretch;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 1em;
+      margin: 1em;
+      flex: 1 0 300px;
+      border-radius: 5px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    }
+
+    .card h4 {
+      margin-top: 0;
+    }
+
+		.cta {
 			display: inline-block;
-			background-color: #ffc107;
+			padding: 20px 40px;
+			background-color: #3399ff;
 			color: #fff;
-			padding: 10px 20px;
-			border-radius: 5px;
 			text-decoration: none;
-			margin-top: 20px;
-			font-size: 1.2em;
-			transition: background-color 0.3s ease;
+			font-weight: bold;
+			border-radius: 10px;
+			transition: all 0.3s ease-in-out;
 			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+			font-size: 1.2em;
+			font-family: Arial, sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 1px;
 		}
 
-		.btn:hover {
-			background-color: #ffa000;
+		.cta:hover {
+			background-color: #27ae60;
+			transform: scale(1.05);
 		}
 
 		.quote {
@@ -78,21 +122,43 @@
 			margin-bottom: 0;
 			text-align: center;
 		}
+    
+		.title {
+			font-size: 2em;
+			font-weight: bold;
+			margin-bottom: 10px;
+      text-align: center;
+		}
 
 	</style>
 </head>
 <body>
 
 	<header class="header">
-		<h1>🤔 Decision Matrix Home Page 🤔</h1>
+		<h1>The Decision-Maker</h1>
 	</header>
 
 	<div class="intro">
-		<img src="decision.jpg" alt="A person standing at a crossroads or facing a decision">
-		<p>Hey there, decision-maker! 🙌 Making choices can be tough, but fear not - our Decision Matrix is here to save the day! 🦸‍♀️</p>
-		<p>Our trusty tool helps you break down your options and evaluate them based on the things that matter most to you. That way, you can make informed choices that align with your priorities and goals! 🎉</p>
-		<a href="#matrix" class="btn">Get started with the Decision Matrix process 🚀</a>
+		<p><strong>Not sure where to eat dinner tonight? Which girl to propose to? Or whether to throw it all on black? The Decision Maker is here to help!</strong></p>
+		<p>Our trusty tool helps you break down your options and evaluate them based on the things that matter most to you. That way, you can make informed choices that align with your priorities and goals!</p>
+		<a href="/decisions" class="cta">Try it out</a>
 	</div>
 
-	<div class="resources">
-		<img src="decision2.jpg" alt="A person confidently making
+  <div class="title">
+    <h2>How it works</h2>
+  </div>
+
+  <section class="section">
+		<div class="card">
+			<h4>Step 1: List Your Options</h4>
+			<p>List as many options as you'd like! If there are 20 pairs of shoes you want to buy but can only afford 1, list all 20. If you want to answer a yes or no, that works as well.</p>
+		</div>
+		<div class="card">
+			<h4>Step 2: Input Your Criteria</h4>
+			<p>This is where you will decide what is most important to you. For example, when buying shoes, some criteria may be comfort, durability, or clout. You will then weigh the importance of each criteria you inputted.</p>
+		</div>
+    <div class="card">
+			<h4>Step 3: Score Your Options</h4>
+			<p>This is where the best options separate themselves. Here you will score (from 1 - 5), each option you have based on the criteria. For example if you're looking at buying a NewBalance, you're going to give it a 5 for comfort.</p>
+		</div>
+	</section>

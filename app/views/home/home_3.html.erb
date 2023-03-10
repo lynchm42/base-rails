@@ -4,133 +4,112 @@
 	<title>Decision Matrix Home Page</title>
 	<style>
 		body {
-			font-family: Arial, sans-serif;
-			background-color: #f5f5f5;
-			color: #333;
-			margin: 0;
-			padding: 0;
-		}
+	font-family: Arial, sans-serif;
+	background-color: #f4f4f4;
+	color: #333;
+}
 
-		.container {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			align-items: center;
-			height: 100vh;
-			overflow: hidden;
-			position: relative;
-		}
+header {
+	background-color: #3399ff;
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+}
 
-		.background {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			background-image: url('fork-in-the-road.jpg');
-			background-size: cover;
-			background-position: center;
-			animation: slide 60s linear infinite;
-		}
+.hero {
+	background-image: url('https://images.pexels.com/photos/977603/pexels-photo-977603.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+	background-size: cover;
+	background-position: center center;
+	height: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
+	color: #fff;
+}
 
-		@keyframes slide {
-			from { transform: translateX(0); }
-			to { transform: translateX(-100%); }
-		}
+.cta {
+	display: inline-block;
+	background-color: #f4511e;
+	color: #fff;
+	padding: 1em 2em;
+	margin-top: 1em;
+	text-decoration: none;
+	border-radius: 5px;
+	transition: all 0.3s ease-in-out;
+}
 
-		.header {
-			background-color: rgba(255, 255, 255, 0.8);
-			color: #333;
-			padding: 20px;
-			text-align: center;
-			font-size: 2em;
-			margin: 0;
-			width: 100%;
-			box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-		}
+.cta:hover {
+	background-color: #333;
+}
 
-		h1 {
-			margin: 0;
-		}
+.section {
+	padding: 2em;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: stretch;
+}
 
-		.intro {
-			margin: 20px auto;
-			max-width: 800px;
-			text-align: center;
-			font-size: 1.2em;
-			line-height: 1.5;
-			padding: 20px;
-			background-color: rgba(255, 255, 255, 0.8);
-			border-radius: 10px;
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-			animation: pop 0.3s ease;
-		}
+.card {
+	background-color: #fff;
+	padding: 1em;
+	margin: 1em;
+	flex: 1 0 300px;
+	border-radius: 5px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+	transition: all 0.3s ease-in-out;
+}
 
-		.intro img {
-			max-width: 100%;
-			margin-bottom: 20px;
-			border-radius: 5px;
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-		}
+.card:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
-		.btn {
-			display: inline-block;
-			background-color: #333;
-			color: #fff;
-			padding: 10px 20px;
-			border-radius: 5px;
-			text-decoration: none;
-			margin-top: 20px;
-			font-size: 1.2em;
-			transition: background-color 0.3s ease;
-			box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-		}
+.card h4 {
+	margin-top: 0;
+}
 
-		.btn:hover {
-			background-color: #555;
-		}
+.footer {
+	background-color: #333;
+	color: #fff;
+	padding: 1em;
+	text-align: center;
+}
 
-		.quote {
-			font-style: italic;
-			font-size: 1.5em;
-			margin-top: 50px;
-			margin-bottom: 0;
-			text-align: center;
-		}
+.footer p {
+	margin: 0;
+}
 
-		@media (max-width: 768px) {
-
-			.intro {
-				margin: 20px;
-				font-size: 1em;
-				padding: 10px;
-			}
-
-			h1 {
-				font-size: 1.5em;
-			}
-
-			.btn {
-        font-size: 1em;
-			  padding: 10px 15px;
-			  margin-top: 10px;
-		  }
 	</style>
 </head>
 <body>
-	<div class="container">
-		<div class="background"></div>
-		<div class="header">
-			<h1>Stuck at a fork in the road?</h1>
-			<p>Let our Decision Matrix guide you to the right path.</p>
+
+	<header>
+		<h1>Decision Maker</h1>
+	</header>
+
+	<section class="hero">
+		<h2>Can't Make a Decision?</h2>
+		<p>Let us help you decide.</p>
+		<a href="#" class="cta">Get Started</a>
+	</section>
+
+	<section class="section">
+		<h3>What Can We Help You Decide?</h3>
+		<div class="card">
+			<h4>Where to Eat Dinner Tonight?</h4>
+			<p>Can't decide on what to eat for dinner? We've got you covered. Answer a few simple questions and we'll suggest the perfect restaurant for you.</p>
 		</div>
-		<div class="intro">
-			<img src="fork-in-the-road.jpg" alt="Fork in the road" />
-			<p>Do you find yourself struggling to make a decision? Perhaps you're not sure which path to take or which factors to consider?</p>
-			<p>Our Decision Matrix is here to help. By breaking down your options into a simple, easy-to-understand format, we'll help you navigate even the toughest decisions.</p>
-			<a href="decision-matrix.html" class="btn">Go to Decision Matrix</a>
+		<div class="card">
+			<h4>What Types of Jobs to Apply To?</h4>
+			<p>Feeling overwhelmed by job listings? We can help you narrow down your search by identifying the types of jobs that best match your skills and interests.</p>
 		</div>
-		<p class="quote">"The hardest thing in life is to know which bridge to cross and which to burn."</p>
-	</div>
+	</section>
+
+	<footer class="footer">
+		<p>&copy; 2023 Decision Maker. All rights reserved.</p>
+	</footer>
+
 </body>
-</html>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Don's Decision Making Matrix</title>
+	<title>Decision-Making Matrix | Don's Guidance</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<!-- Insert any CSS or JavaScript files here -->
@@ -9,19 +9,24 @@
 		body {
 			margin: 0;
 			padding: 0;
-			font-family: Arial, sans-serif;
+			font-family: 'Roboto', sans-serif;
 			font-size: 16px;
 			line-height: 1.5;
+			color: #444;
 		}
 		header {
-			background-color: #222;
-			color: #fff;
+			background-color: #fff;
+			color: #333;
 			padding: 20px;
 			text-align: center;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 		}
 		h1 {
-			font-size: 3rem;
+			font-size: 2.5rem;
 			margin-top: 0;
+			margin-bottom: 10px;
+			font-weight: bold;
+			letter-spacing: 1px;
 		}
 		.hero {
 			background-image: url("background.jpg");
@@ -30,11 +35,31 @@
 			color: #fff;
 			padding: 100px 0;
 			text-align: center;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 600px;
+			position: relative;
+		}
+		.hero::after {
+			content: "";
+			background: rgba(0, 0, 0, 0.4);
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			z-index: 1;
 		}
 		.hero h2 {
-			font-size: 2rem;
+			font-size: 2.5rem;
 			margin-top: 0;
 			margin-bottom: 20px;
+			font-weight: 500;
+			letter-spacing: 1px;
+			color: #fff;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
 		}
 		.cta {
 			display: inline-block;
@@ -45,6 +70,8 @@
 			font-weight: bold;
 			border-radius: 10px;
 			transition: all 0.3s ease-in-out;
+			margin-top: 20px;
+			z-index: 2;
 		}
 		.cta:hover {
 			background-color: #27ae60;
@@ -58,35 +85,61 @@
 			font-size: 2rem;
 			margin-top: 0;
 			margin-bottom: 20px;
+			font-weight: bold;
+			letter-spacing: 1px;
 		}
 		.section p {
 			margin-bottom: 30px;
+		}
+		.footer {
+			background-color: #333;
+			color: #fff;
+			padding: 20px;
+			text-align: center;
+		}
+		.footer p {
+			margin: 0;
+			font-size: 0.9rem;
 		}
 	</style>
 </head>
 <body>
 
 	<header>
-		<h1>Don's Decision Making Matrix</h1>
+		<h1>Decision-Making Matrix | Don's Guidance</h1>
+		<nav>
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">About Don</a></li>
+				<li><a href="#">How It Works</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</nav>
 	</header>
 
 	<section class="hero">
-		<h2>Don will help you make the right decision</h2>
-		<a href="#start" class="cta">Get Started</a>
+		<h2>Don Will Help You Make the Right Decision</h2>
+		<a href="#" class="cta">Get Started</a>
 	</section>
 
 	<section class="section">
-		<h3>What is the Decision Making Matrix?</h3>
-		<p>Don's Decision Making Matrix is a simple yet powerful tool to help you make better decisions. Whether you're facing a major life choice or a business dilemma, Don can guide you to the best possible outcome.</p>
+		<h3>What is Don's Decision-Making Matrix?</h3>
+		<p>Don's Decision-Making Matrix is a powerful tool that can help you make better decisions, faster. By answering a series of questions, Don will guide you through the decision-making process, helping you to identify your goals, weigh your options, and ultimately make the best decision for your unique situation.</p>
 	</section>
 
 	<section class="section">
-		<h3>How Can Don Help You?</h3>
-		<p>Don is a master of decision making and can help you answer any question you may have. He can guide you through the decision making process step by step, helping you weigh the pros and cons and consider all the options.</p>
+		<h3>What Types of Questions Can Don Help You Answer?</h3>
+		<p>Don can help you answer a wide range of questions, from simple to complex. Some examples might include:</p>
+		<ul>
+			<li>What is the best way to approach a difficult conversation with a colleague?</li>
+			<li>Which job offer should I accept?</li>
+			<li>Should I buy or rent a home?</li>
+			<li>What is the best way to invest my savings?</li>
+		</ul>
 	</section>
 
-	<footer>
-		<p>© 2023 Don's Decision Making Matrix</p>
+	<footer class="footer">
+		<p>&copy; 2023 Don's Decision-Making Matrix. All rights reserved.</p>
 	</footer>
 
 </body>

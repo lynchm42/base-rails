@@ -1,45 +1,39 @@
-<div>
-  <div>
-    <h1>
-      Ask Ben - Step 4
-    </h1>
 
-    <h3>
-      My Question: <%= @the_decision.name %>
-    </h3>
+  <div class="intro">
+    <strong>Your Question: <%= @the_decision.name.strip().capitalize %></strong>
+  </div>
 
-    <h3>
-      Weigh the importance of each Criteria (1 = not important. 5 = extremely important)
-    </h3>
 
-    <div>
-  <div>
-    <table border="1">
+  <div class = "intro">
+    <p class="pnormal">Now, weigh each criteria, one at a time, on a scale from 1 to 5</p>
+    <p class="psmall">(5 being extremely important to you when making your decision, and 1 being not very important) </p>
+    <table border="1" class="table">
       <tr>
-        <th>Criteria</th>
-        <th>Weight</th>
+        <th class="th">Criteria</th>
+        <th class="th">Weight</th>
       </tr>
       <% @the_decision.criteria.each do |a_criterium| %>
         <tr>
-          <td>
+          <td class="td">
             <%= a_criterium.name %>
           </td>
 
-          <td>
+          <td class="td">
             <form action="/modify_criterium/<%= a_criterium.id %>" method="post">
               <input type="hidden" name="path_id" value="<%= a_criterium.id %>">
-              <input type="number" name="query_weight" value="<%= a_criterium.weight %>" min="1" max="5">
+              <input type="number" name="query_weight" value="<%= a_criterium.weight %>" min="1" max="5" class="input">
               <input type="hidden" name="query_decision_id" value="<%= a_criterium.decision_id %>">
               <input type="hidden" name="query_name" value="<%= a_criterium.name %>">
-              <input type="submit" value="Weigh">
+              <input type="submit" value="Weigh" class="weigh">
             </form>
           </td>
         </tr>
       <% end %>
     </table>
 
-  <form action="/decisions_scores/<%= @the_decision.id.to_s.strip %>"> 
-      <button>
-        One more step
-      </button>
-  </form>
+    <form action="/decisions_scores/<%= @the_decision.id.to_s.strip %>"> 
+        <button class="cta">
+          One more step!
+        </button>
+    </form>
+  </div>

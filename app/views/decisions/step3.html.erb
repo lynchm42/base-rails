@@ -1,55 +1,16 @@
-<div>
-  <div>
-    <h1>
-      Ask Ben - Step 3
-    </h1>
-    <h3>
-      My Question: <%= @the_decision.name %>
-    </h3>
-    <h3>
-      What criteria are important to you?
-    </h3>
-    <p> For example, if you're deciding where to eat dinner, some criteria that may be important are: price, quality, and ambiance. </p>
-    <div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          Criteria
-        </th>
 
-        <!--<th>
-          Weight
-        </th>-->
-
-      </tr>
-
-      <% @the_decision.criteria.each do |a_criterium| %>
-      <tr>
-        <td>
-          <%= a_criterium.name %>
-        </td>
-
-        <!--<td>
-          <%= a_criterium.weight %>
-        </td>-->
-
-      </tr>
-      <% end %>
-    </table>
-  </div>
+<div class="intro">
+    <strong>Your Question: <%= @the_decision.name.strip().capitalize %></strong>
 </div>
 
-<hr>
-    
+
+<div class="intro">
+		<p><strong>What are your criteria?</strong></p>
+    <p> For example, if you're deciding where to eat dinner, some criteria that may be important are: price, quality, and delivery time. </p>
 
     <form action="/insert_criterium" method="post">
       <div>
-        <label for="name_box">
-          Criteria:
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="name_box" name="query_name" class="input">
       </div>
 
       <div>
@@ -63,90 +24,37 @@
         <label for="decision_id_box">
         </label>
 
-        <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
+        <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>" >
       </div>
 
-      <button>
-        Create criteria
+      <button class="cta">
+        Add criteria
       </button>
     </form>
 
-    <form action="/decisions_weights/<%= @the_decision.id.to_s.strip %>">
+    <div>
+      <table border="1" class="table">
+        <tr>
+          <th class="th">
+            Criteria
+          </th>
+        </tr>
 
-      <button>
+        <% @the_decision.criteria.each do |a_criterium| %>
+        <tr>
+          <td class="td">
+            <%= a_criterium.name %>
+          </td>
+        </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <form action="/decisions_weights/<%= @the_decision.id.to_s.strip %>">
+      <button class="cta">
         Done creating criteria
       </button>
     </form>
 
 
-
-<!--
-    <h1>
-      Decision #<%= @the_decision.id %> details
-    </h1>
-
-    <div>
-      <div>
-        <a href="/decisions">
-          Go back
-        </a>
-      </div>
-
-      <div>
-        <a href="/delete_decision/<%= @the_decision.id %>">
-          Delete decision
-        </a>
-      </div>
-    </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @the_decision.name %>
-      </dd>
-
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_decision.created_at) %> ago
-      </dd>
-
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_decision.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
 </div>
-
-<hr>
-
-
-<div>
-  <div>
-    <h2>
-      Edit decision
-    </h2>
-
-    <form action="/modify_decision/<%= @the_decision.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-
-        <input type="text" id="name_box" name="query_name" value="<%= @the_decision.name %>">
-      </div>
-
-      <button>
-        Update decision
-      </button>
-    </form>
-  </div>
-</div>
-
-<hr> -->

@@ -1,21 +1,13 @@
-<div>
-  <div>
-    <h1>
-      Ask Ben - Ben's Answer
-    </h1>
-    <h3>
-      My Question: <%= @the_decision.name %>
-    </h3>
+<div class="intro">
+    <strong>Your Question: <%= @the_decision.name.strip().capitalize %></strong>
+</div>
 
-    <h3>
-      Your Answer is:
-  <div>
-
-  <div class="option">
+<div class="intro">
+  <strong>Your Answer:<strong>
   <h1><%= @option_scores.first[0].name.strip().capitalize %></h1>
-  </div>
+</div>
 
-  <!-- Show the link to view top 3 options -->
+<div class="intro">
   <% if @show_top_3 %>
     <!-- Show the top 3 options -->
     <% @option_scores.each_with_index do |option_score, index| %>
@@ -29,5 +21,5 @@
       <%= link_to "View Top 3 Options", { :controller => "decisions", :action => "answer", :path_id => @the_decision.id, :show_top_3 => true } %>
     </div>
   <% end %>
-
-<a href="/"> Ask Ben something else. </a>
+  <a href="/" class="cta"> Make another decision! </a>
+</div>

@@ -1,30 +1,24 @@
-<div>
-  <div>
-    <h1>
-      Ask Ben - Step 5
-    </h1>
-    <h3>
-      My Question: <%= @the_decision.name %>
-    </h3>
-    <h3>
-      Now, score each option based off of the criteria you created (1 is a low score, 5 is a high score)
-    </h3>
-    <p> Quick hint: if price is your criteria, for a high price you would give it a lower score </p>
-  <div>
+<div class="intro">
+    <strong>Your Question: <%= @the_decision.name.strip().capitalize %></strong>
+</div>
 
-  <table border="1">
+<div class = "introoo">
+    <p class="pnormal">Now, score each option based off of the criteria you input as important</p>
+    <p class="psmall">Putting a 5 means that option ranks high in this criteria. To help gather accurate answers, there should be at most 1 "5" score per criteria and 1 "1". (Create each score first before Getting your Answer)</p>
+
+  <table border="1" class="table">
     <thead>
       <tr>
-        <th>Options</th>
+        <th class="th">Options</th>
         <% @criteria.each do |c| %>
-          <th><%= c.name %></th>
+          <th class="th"><%= c.name %></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
           <% @options.each do |a_option| %>
         <tr>
-          <td><%= a_option.name %></td>
+          <td class="th"><%= a_option.name %></td>
           <% @criteria.each do |a_criteria| %>
             <% the_score = Score.where({ :criteria_id => a_criteria, :option_id => a_option }).at(0) %>
               <% if the_score %>
@@ -59,6 +53,8 @@
     </tbody>
   </table>
 
-  <a href="/decisions_answer/<%= @the_decision.id.to_s.strip %>">
+  <a href="/decisions_answer/<%= @the_decision.id.to_s.strip %>" class="cta">
     Get Answer!
   </a>
+
+  </div>

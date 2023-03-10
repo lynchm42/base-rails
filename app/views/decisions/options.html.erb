@@ -1,46 +1,11 @@
-<div>
-    <div>
-      <h1>
-        Ask Ben - Step 2
-      </h1>
-      <h3>
-        My Question: <%= @the_decision.name %>
-      </h3>
-      <h3>
-        What are your options?
-      </h3>
-    <div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          Options
-        </th>
-      </tr>
 
-      <% @the_decision.options.each do |a_option| %>
-      <tr>
-        <td>
-          <%= a_option.name %>
-        </td>
-      </tr>
-      <% end %>
-    </table>
-  </div>
-</div>
 
-<hr>
-    
-    <form action="/insert_option" method="post">
+<div class="intro">
+		<p><strong>What are your options?</strong></p>
+		<form action="/insert_option" method="post">
       <div>
-        <label for="name_box">
-          Option:
-        </label>
-
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="name_box" name="query_name" class="input">
       </div>
-
-  <hr>
 
       <div>
         <label for="decision_id_box">
@@ -49,16 +14,37 @@
         <input type="hidden" id="decision_id_box" name="query_decision_id" value="<%= @the_decision.id %>">
       </div>
 
-      <button>
+      <button class="cta">
         Add Option
       </button>
     </form>
 
-      <!--this part is where it is going to send them to the scoring part-->
+<div>
+    
+  <div>
+    <table border="1" class="table">
+      <tr>
+        <th class="th">
+          Options
+        </th>
+      </tr>
+
+      <% @the_decision.options.each do |a_option| %>
+      <tr>
+        <td class = "td">
+          <%= a_option.name.strip().capitalize %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
     <form action="/decisions_criteria/ <%= @the_decision.id  %> "> 
       
 
-      <button>
+      <button class="cta">
         Done adding options
       </button>
     </form>
+</div>

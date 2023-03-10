@@ -1,33 +1,18 @@
-<div>
-  <div>
-    <h1>
-      Ask Ben - Step 1
-    </h1>
-  </div>
-</div>
 
-<hr>
-
-<div>
-  <div>
-    <h3>
-      What decision are you trying to make?
-    </h3>
-
-    <p> For example: "Where to eat dinner tonight?", "Which job offer should I take?", "Should I throw everything on black?"
-
-    <form action="/insert_decision" method="post">
+<div class="intro">
+		<p><strong>What decision do you want to make?</strong></p>
+		<p>Some examples: "Where to eat dinner tonight?", "Which job offer should I take?", "Should I throw everything on black?"</p>
+		<form action="/insert_decision" method="post">
       <div>
         <label for="name_box">
           Your question:
         </label>
 
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="name_box" name="query_name" class="input">
       </div>
-
-      <button class="btn">
-        Ask Ben!
+      
+      <button class="cta">
+        Next Step!
       </button>
     </form>
-  </div>
-</div>
+	</div>
